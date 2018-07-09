@@ -1,0 +1,71 @@
+.App {
+  text-align: center;
+}
+
+
+
+.App-header {
+  padding-bottom: 20px;
+  background-color: #f3c589;
+  height: 1%;
+  color: white;
+  border: 5px solid silver;
+}
+
+input[type="text"]{
+  /* display: inline-block; */
+  width: 120px;
+  height: 20px;
+}
+button[type="button"]{
+  width: 30px;
+  height: 26px;
+  font-size: 12px;
+}
+
+/* .App-title {
+  font-size: 1.5em;
+} */
+
+.ClearfixApp:after {
+  content:"";
+  display: block;
+  clear: both;
+}
+
+.SectionApp {
+  background-color: #f3c589;
+  height: 560px;
+}
+
+.AppLine {
+  border: 5px solid silver;
+  float:left;
+}
+
+.FilesApp {
+  background-color: #f3c589;
+  width: 18.5%;
+  height: 549px;
+  padding-left: 1%;
+}
+
+.EditorApp {
+  background-color: #f3c589;
+  width: 38%;
+  height: 549px;
+  padding-left: 1%;
+}
+
+.ConsoleApp {
+  background-color: #f3c589;
+  width: 38%;
+  height: 549px;
+  padding-left: 1%;
+}
+
+/* .App-intro {
+  font-size: large;
+} */
+
+
