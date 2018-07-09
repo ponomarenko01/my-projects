@@ -28,6 +28,7 @@ class Next extends React.Component {
 
 ReactDOM.render(
     <SimpleRouter />
+    
     // <App /> 
 
 ,document.getElementById('root'));
