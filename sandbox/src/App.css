@@ -14,11 +14,12 @@
 
 input[type="text"]{
   /* display: inline-block; */
-  width: 120px;
+  /* width: 120px; */
+  padding-left: 5px;
   height: 20px;
 }
 button[type="button"]{
-  width: 30px;
+  /* width: 30px; */
   height: 26px;
   font-size: 12px;
 }
