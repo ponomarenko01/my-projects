@@ -19,8 +19,8 @@ var Snippet = sequelize.define('snippet', {
 
 
 
-// sequelize.sync()
-//fillDB()
+//  sequelize.sync()
+// fillDB()
 //
 //
 

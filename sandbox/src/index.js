@@ -12,7 +12,7 @@ class SimpleRouter extends React.Component {
         return (
             <Router history={createHistory()}>
                 <div>
-                    <Route path="/" component={Next} />
+                    <Route path="/" component={Home} />
                 </div>
             </Router>
         );
@@ -20,7 +20,7 @@ class SimpleRouter extends React.Component {
 }
     
 
-class Next extends React.Component {
+class Home extends React.Component {
     render() {
         return <App />;
         }

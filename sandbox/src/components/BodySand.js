@@ -4,6 +4,8 @@ import { render } from 'react-dom';
 import AceEditor from 'react-ace';
 // import { Link } from 'react-router-dom';
 
+import Menu from './Menu';
+
 import 'brace/mode/java';
 import 'brace/theme/github';
 
@@ -31,10 +33,7 @@ class FilesSand extends Component {
         <div className="FilesApp AppLine">
           <h3 className="App">Files</h3>
             <div>
-              Your project <br />
-              HTML <br />
-              CSS <br />
-              JS <br />
+              <Menu />
             </div>
         </div>
       );
@@ -44,16 +43,11 @@ class FilesSand extends Component {
 class EditorSand extends Component {
   render(){
       return (
-        
         <div className="RedactorApp AppLine">
           <p className="App">Editor</p>
-          {/* <input type='text' placeholder='text' name="input" value='Type your name' />
-          <button type='button'>+</button><br /><br />
-          <span>Your Link there  	&nbsp; </span>
-          <Link to="http://localhost:3001/">http://localhost:3001/</Link>  */}
-            <div>
+          <div>
             <AceEditor value={this.props.code} />
-            </div>
+          </div>
         </div>
       );
   }
@@ -77,6 +71,7 @@ class ConsoleSand extends Component {
 
 class BodySand extends Component {
     render(){
+      console.log(this.props)
         return (   
           <body>
             <section className="SectionApp ClearfixApp">
