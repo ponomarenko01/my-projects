@@ -1,30 +1,32 @@
 import React, { Component } from 'react'
-import { render } from 'react-dom';
+// import { render } from 'react-dom';
+import FileComp from './FileComp';
+import CodeComp from './CodeComp';
 // import brace from 'brace';
-import AceEditor from 'react-ace';
+// import AceEditor from 'react-ace';
 // import { Link } from 'react-router-dom';
 
 import Menu from './Menu';
 
-import 'brace/mode/java';
-import 'brace/theme/github';
+// import 'brace/mode/java';
+// import 'brace/theme/github';
 
 import '../App.css';
 
-function onChange(newValue) {
-    console.log('change',newValue);
-}
+// function onChange(newValue) {
+//     console.log('change',newValue);
+// }
 
-render(
-    <AceEditor
-      mode="java"
-      theme="github"
-      onChange={onChange}
-      name="UNIQUE_ID_OF_DIV"
-      editorProps={{$blockScrolling: true}}
-    />,
-    document.getElementById('root')
-);
+// render(
+//     <AceEditor
+//       mode="java"
+//       theme="github"
+//       onChange={onChange}
+//       name="UNIQUE_ID_OF_DIV"
+//       editorProps={{$blockScrolling: true}}
+//     />,
+//     document.getElementById('root')
+// );
 
 
 class FilesSand extends Component {
@@ -32,8 +34,10 @@ class FilesSand extends Component {
       return (
         <div className="FilesApp AppLine">
           <h3 className="App">Files</h3>
+          <FileComp />
             <div>
               <Menu />
+              
             </div>
         </div>
       );
@@ -43,10 +47,11 @@ class FilesSand extends Component {
 class EditorSand extends Component {
   render(){
       return (
-        <div className="RedactorApp AppLine">
+        <div className="EditorApp AppLine">
           <p className="App">Editor</p>
+          <CodeComp />
           <div>
-            <AceEditor value={this.props.code} />
+            {/* <AceEditor value={this.props.code} /> */}
           </div>
         </div>
       );
@@ -76,7 +81,7 @@ class BodySand extends Component {
           <body>
             <section className="SectionApp ClearfixApp">
               <FilesSand />
-              <EditorSand code={this.props.page.code} />
+              <EditorSand  />
               <ConsoleSand />
             </section>
           </body>   
@@ -85,3 +90,5 @@ class BodySand extends Component {
   }
 
 export default BodySand
+
+

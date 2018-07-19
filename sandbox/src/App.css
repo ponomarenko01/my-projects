@@ -24,6 +24,11 @@ button[type="button"]{
   font-size: 12px;
 }
 
+ul{
+  list-style-position: inside;
+  color: black;
+}
+
 /* .App-title {
   font-size: 1.5em;
 } */
