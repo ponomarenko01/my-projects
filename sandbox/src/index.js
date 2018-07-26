@@ -1,23 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+// import { Provider } from 'react-redux';
+// import { createStore } from 'redux';
 // import {Router, Route} from "react-router-dom";
 // import createHistory from "history/createBrowserHistory";
 
 import './index.css';
 import App from './App';
-import reducer from './reducers';
+// import reducer from './reducers';
 import registerServiceWorker from './registerServiceWorker';
 
-const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+// const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 ReactDOM.render(
     // <SimpleRouter />
     
-    <Provider store={store}>
+    // <Provider store={store}>
         <App />
-    </Provider>
+    // {/* </Provider> */}
 
 ,document.getElementById('root'));
 registerServiceWorker();

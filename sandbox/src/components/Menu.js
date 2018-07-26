@@ -23,7 +23,7 @@ class Menu extends Component {
         </div>;
     }
     return (
-      <div onClick={this.toggleState.bind(this)}>
+      <div className="Underline" onClick={this.toggleState.bind(this)}>
         There are your files
         {dropdownText}
       </div>
