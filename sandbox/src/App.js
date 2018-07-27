@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
 import { connect, Provider} from 'react-redux';
 import { createStore, combineReducers } from 'redux';
 import { Router, Route, Switch } from "react-router-dom"
 import createHistory from "history/createBrowserHistory";
-// import { Link } from 'react-router-dom';
 
 import './App.css';
-// import Menu from './components/Menu';
 import files from './reducers/files';
 import HeaderSand from './components/HeaderSand';
 import BodySand from './components/BodySand';
@@ -49,10 +46,7 @@ function pageReducer(state = [], action){
   return state;
 }
 
-// const initialState = [
-//   'Smells like spirit',
-//   'Enter Sandman'
-// ];
+// const initialState = [];
 
 const reducers = combineReducers({
     page: pageReducer,
@@ -61,13 +55,6 @@ const reducers = combineReducers({
 
 class Home extends Component {
     render(){
-        // if (this.props.snippet.status === 'EMPTY'){
-        //     return (
-        //     <div >
-        //         Loading.....
-        //     </div>
-        //     )
-        // }
         return (
             <div >
                 <HeaderSand />
@@ -99,25 +86,6 @@ const mapStateToProps = function(store) {
   };
 }
 
-// const addFileBtn = document.querySelectorAll('.addFile')[0];
-// const fileInput = document.querySelectorAll('.fileInput')[0];
-// const list = document.querySelectorAll('.list')[0];
-
-// store.subscribe(() => {
-//   list.innerHTML = '';
-//   fileInput.value = '';
-//   store.getState().forEach(simpleFile => {
-//     const li = document.createElement('li');
-//     li.textContent = simpleFile;
-//     list.appendChild(li);
-//   });
-// })
-
-
-// addFileBtn.addEventListener('click', () => {
-//   const fileName = fileInput.value;
-//   store.dispatch ({ type: 'ADD_FILE', payload: fileName });
-// });
 
 let BodySandConnected = connect(mapStateToProps)(BodySand)
 
@@ -136,11 +104,6 @@ class App extends Component {
     }
   }
 
-// export default connect(
-//   state => ({
-//     testStore: state
-//   }),
-//   dispatch => ({})
-// )(App);
+
 
 export default App;
