@@ -5,5 +5,6 @@ import files from './files';
 
 export default combineReducers({
     letters,
-    files
+    files,
+    files2
 });

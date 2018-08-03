@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import '../App.css';
 
 class FileComp extends Component {
@@ -22,7 +23,9 @@ class FileComp extends Component {
       <button onClick={this.addFile.bind(this)}>Add file</button>
       <ul>
         {this.props.files.map((files, index) =>
-          <li key={index}>{files}</li>
+          <li key={index}>
+            <Link to={`/code/${files.id}`}>{files}</Link> 
+          </li>
         )}
       </ul>
     </div>
