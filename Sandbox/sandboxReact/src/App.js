@@ -25,7 +25,8 @@ gql.request(`query getSnippet ($snippetId: Int!) {
 const page = {
   nameAuthor: "nobody",
   link: "zZwrwdd45",
-  code: "alert('hello world');"
+  code: "alert('hello world');",
+  key: "unickey"
 };
 
 function pageReducer(state = [], action){
@@ -57,7 +58,7 @@ class Home extends Component {
     render(){
         return (
             <div >
-                <HeaderSand />
+                <HeaderSandConnected />
               <BodySandConnected />
             </div>
         );
@@ -85,7 +86,7 @@ const mapStateToProps = function(store) {
     page: store.page,
   };
 }
-
+let HeaderSandConnected = connect(mapStateToProps)(HeaderSand)
 
 let BodySandConnected = connect(mapStateToProps)(BodySand)
 

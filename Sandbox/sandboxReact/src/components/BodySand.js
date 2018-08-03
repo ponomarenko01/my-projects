@@ -12,6 +12,7 @@ import 'brace/mode/java';
 import 'brace/theme/github';
 
 import '../App.css';
+import { clearInterval } from 'timers';
 
 function onChange(newValue) {
     console.log('change',newValue);
@@ -27,6 +28,7 @@ render(
     />,
     document.getElementById('root')
 );
+
 
 
 class FilesSand extends Component {
@@ -45,13 +47,19 @@ class FilesSand extends Component {
 }
 
 class EditorSand extends Component {
+
+  // onChange (){ function(event) {
+  //   this.setState({typed: event.target.value});
+  //   }
+  // }
   render(){
       return (
         <div className="EditorApp AppLine">
           <p className="App">Editor</p>
           {/* <CodeComp /> */}
           <div>
-            <AceEditor className="AceContainer" value={this.props.code} />
+            <AceEditor  className="AceContainer" value={this.props.code} />
+            {/* onChange={this.onChange.bind(this)} */}
           </div>
         </div>
       );
@@ -75,17 +83,31 @@ class ConsoleSand extends Component {
 }
 
 class BodySand extends Component {
+  constructor(props){
+    super(props)
+    console.log(props)
+    // this.interval = setInterval(function() {
+    //   this.AceEditor.onChange
+    //   console.log(this.AceEditor.onChange)
+    // }
+    //   , 10000)
+    // this.state = {loaded: false, data: null};
+}
     render(){
       console.log(this.props)
         return (   
           <body>
             <section className="SectionApp ClearfixApp">
-              <FilesSand />
+              <FilesSand ref={(input) => { this.fileInput = input }} />
               <EditorSand  code={this.props.page.code}/>
               <ConsoleSand />
             </section>
           </body>   
         );
+    }
+
+    componentWillUnmount(){
+      clearInterval(this.interval)
     }
   }
 

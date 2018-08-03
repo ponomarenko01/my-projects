@@ -9,6 +9,11 @@ class FileComp extends Component {
       this.fileInput.value = '';
   }
 
+  getFileName(){
+    console.log('getFileName', this.fileInput.value);
+    return this.fileInput.value;
+  }
+
   render() {
     console.log(this.props.files);
     return (
