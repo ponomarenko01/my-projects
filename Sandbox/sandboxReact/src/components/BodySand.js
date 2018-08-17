@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { render } from 'react-dom';
 import FileComp from './FileComp';
+import ConsoleList from './ConsoleList';
+import comps from '../actions/codelist';
 // import CodeComp from './CodeComp';
 // import brace from 'brace';
 import AceEditor from 'react-ace';
@@ -60,6 +62,7 @@ class EditorSand extends Component {
           <div>
             <AceEditor  className="AceContainer" value={this.props.code} />
             {/* onChange={this.onChange.bind(this)} */}
+           
           </div>
         </div>
       );
@@ -67,18 +70,28 @@ class EditorSand extends Component {
 }
 
 class ConsoleSand extends Component {
+  state = {
+    isOpen: false
+  }
+
   render(){
+    
+    const newbody = this.state.isOpen && <ConsoleList comps={comps} />
       return (
         <div className="ConsoleApp AppLine">
           <h3 className="App">Console</h3>
+            <button className="btn" onClick = {this.handleclick}>Change</button>
             <div>
-              1 <br />
-              2 <br />
-              3 <br />
-              4 <br />
+              {newbody}
+              {/* <ConsoleList comps={comps} /> */}
             </div>
         </div>
       );
+  }
+  handleclick = () => {
+    this.setState({
+      isOpen: !this.state.isOpen
+  })
   }
 }
 

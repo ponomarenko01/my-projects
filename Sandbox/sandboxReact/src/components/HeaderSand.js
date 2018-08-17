@@ -15,7 +15,7 @@ export default class HeaderSand extends Component {
           <input type='text' placeholder='text' name="input" value='Type your name' />
           <button type='button'>Save</button><br /><br />
           <span>Your Link there  	&nbsp; </span>
-          <Link to={`/code/${this.props.page.key}`}>http://www.mydomaine.com{`/code/${this.props.page.key}`}</Link> 
+          <Link to={`/code/${this.props.page.code}`}>{`/code/${this.props.page.code}`}</Link> 
          
          
         </header>

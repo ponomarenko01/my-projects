@@ -16,7 +16,6 @@ gql.request(`query getSnippet ($snippetId: Int!) {
   snippet (id: $snippetId) {
     title
     code
-    key
   }
   
 }`, {"snippetId":2}).then(data => store.dispatch({type: "DATA", data}))
@@ -67,6 +66,13 @@ class Home extends Component {
 
 class Code extends Component {
     render(){
+        // gql.request(`query getSnippets ($snippetId: Int!) {
+        //     snippet (id: $snippetId) {
+        //       title
+        //       code
+        //     }
+            
+        //   }`, {"snippetId": 2}).then(data => store.dispatch({type: "DATA", data}))
         return (
             <div>
                 one code with id = {this.props.id}

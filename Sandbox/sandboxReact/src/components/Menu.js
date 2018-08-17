@@ -6,25 +6,26 @@ class Menu extends Component {
     this.state = { isOpened: false };
   }
 
-  toggleState() {
+  toggleState = () => {
     this.setState({ isOpened: !this.state.isOpened });
   }
 
   render() {
     console.log( 'isOpened', this.state.isOpened );
-    let dropdownText;
-    if (this.state.isOpened) {
-      dropdownText = 
+    
+    const dropdownText = this.state.isOpened &&
         <div>
             <br />
             HTML <br />
             CSS <br />
             JS <br />
         </div>;
-    }
+   
     return (
-      <div className="Underline" onClick={this.toggleState.bind(this)}>
-        There are your files
+      <div>
+        <button onClick={this.toggleState}>
+          { this.state.isOpened ? 'Choose your files' : ' There are your files'}
+        </button>
         {dropdownText}
       </div>
     );

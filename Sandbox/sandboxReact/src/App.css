@@ -25,6 +25,7 @@ button[type="button"]{
 }
 
 ul{
+  list-style: none;
   list-style-position: inside;
   color: black;
 }
