@@ -8,7 +8,7 @@ var sequelize = new Sequelize('sandbox1', 'root', 'root',
             min: 0,
             idle: 10000
         },
-        logging: true
+        logging: false
     }
 );
 
@@ -37,7 +37,7 @@ var Snippet = sequelize.define('snippet', {
 
 User.hasMany(Snippet)
 Snippet.belongsTo(User, {through: 'UserSnippet'})
-sequelize.sync()
+// sequelize.sync()
 
 async function fillDB(){
     await sequelize.sync()
@@ -67,7 +67,7 @@ async function fillDB(){
 }
 
 //  sequelize.sync()
-fillDB()
+// fillDB()
 //
 //
 
@@ -80,7 +80,7 @@ var { buildSchema } = require('graphql');
 var schema = buildSchema(`
     type Query {
         snippet(id: Int!): Snippet
-        user(id: Int!): User
+        user(id: String!): User
         snippets: [Snippet]
     }
 
