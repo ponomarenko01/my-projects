@@ -54,7 +54,9 @@ class EditorSand extends Component {
   //   this.setState({typed: event.target.value});
   //   }
   // }
+ 
   render(){
+    console.log(this.props.code)
       return (
         <div className="EditorApp AppLine">
           <p className="App">Editor</p>
@@ -107,15 +109,15 @@ class BodySand extends Component {
     // this.state = {loaded: false, data: null};
 }
     render(){
-      console.log(this.props)
+      console.log(this.props.page.code)
         return (   
-          <body>
+          <div>
             <section className="SectionApp ClearfixApp">
               <FilesSand ref={(input) => { this.fileInput = input }} />
               <EditorSand  code={this.props.page.code}/>
               <ConsoleSand />
             </section>
-          </body>   
+          </div>   
         );
     }
 

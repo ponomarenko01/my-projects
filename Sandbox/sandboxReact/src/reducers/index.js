@@ -6,5 +6,7 @@ import files from './files';
 export default combineReducers({
     letters,
     files,
-    files2
+    files2,
+    snippets,
+    pageform
 });
