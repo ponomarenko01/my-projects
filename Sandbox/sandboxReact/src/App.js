@@ -3,10 +3,9 @@ import { connect, Provider} from 'react-redux';
 import { createStore, combineReducers } from 'redux';
 import { Router, Route, Switch } from "react-router-dom"
 import createHistory from "history/createBrowserHistory";
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import './App.css';
 import files from './reducers/files';
-// import snippets from './reducers/snippets';
 import HeaderSand from './components/HeaderSand';
 import BodySand from './components/BodySand';
 import { GraphQLClient } from 'graphql-request'
@@ -22,8 +21,6 @@ const page = {
   code: "alert('hello world');",
   key: "unickey"
 };
-
-// const initialState = {page};
 
 function pageReducer(state, action){
     if (state === undefined){
@@ -41,27 +38,13 @@ function pageReducer(state, action){
     ];
   }
 
-  else if (action.type === 'ADD_SNIPPET'){
-    console.log(action.data)
-    return {data: action.data.snippet, status: 'DATA'};
-  }
-
-  // else if (action.type === 'ADD_SNIPPET'){
-  //   console.log('action.payload', action.payload)
-  //   return [
-  //     ...state,
-  //     action.payload
-  //   ];
-  // }
-
   return state;
 }
 
 
 const reducers = combineReducers({
     page: pageReducer,
-    files,
-    // snippets
+    files
 })
 
 class Home extends Component {
@@ -91,22 +74,9 @@ class Code extends Component {
             
           }`, {snippetId: this.props.id
           ,"userId": 6}).then(data => store.dispatch({type: "DATA", data}))
-          
-        // gql.request(
-        //   `mutation createSnippet($userId: Int!, $title:String!, $code:String!) {
-        //     createSnippet(userId: $userId, title: $title, code: $code) {     
-        //        title
-        //        code
-        //        userId
-        //       key
-        //     }
-        //   }`,
-        //   {key: this.props.id
-        //       ,"userId": 3}).then(data => store.dispatch({type: "ADD_SNIPPET", data}))
               
         return (
             <div>
-                {/* <SnipComp /> */}
                 <Home />
                 one code with id = {this.props.id},
                 and key = {this.props.id}
@@ -129,46 +99,23 @@ class SnipComp extends Component {
       }`,
       {title: this.title.value,
         code: this.code.value,
-        key: this.props.id,
         userId: 6}
   )
-  .then(data => (console.log(typeof data,data),store.dispatch({type: "DATA", data: {snippet:data.createSnippet}})))
-
+  .then(data => store.dispatch({type: "DATA", data: {snippet:data.createSnippet}}))
 
       console.log(this.code.value);
-      // console.log(this.page.key);
-      // this.props.onAddSnippet(this.title.value);
-      // this.props.onAddSnippet(this.code.value);
       this.title.value = '';
       this.code.value = '';
-      this.userId.value = '';
   }
-
-  // getSnipName(){
-  //   console.log('getSnipName', this.title.value);
-  //   return this.title.value;
-  // }
-
-  
 
   render() {
     console.log(this.props.code);
-    // console.log(this.data)
     return (
     <div>
       <input type="text" ref={(input) => { this.title = input }} />
-      <input type="text" ref={(input) => { this.code = input }} />
-      <input type="text" ref={(input) => { this.userId = input }} />
+      <textarea ref={c => this.code = c}></textarea>
       <button onClick={this.addSnippet.bind(this)}>Add snippet</button>
-      <Link to={`/code/${this.props.id}`}>{this.props.id}</Link> 
-      {/* <ul>
-        {this.props.snippets.map((snippets, index) =>
-          <li key={index}>
-            <Link to={`/code/${snippets.id}`}>{snippets}</Link> 
-          </li>
-        )}
-      </ul> */}
-
+    
     </div>
   );
   }
@@ -215,6 +162,41 @@ class App extends Component {
 
 
 export default App;
+
+
+
+
+
+
+
+
+
+// gql.request(
+        //   `mutation createSnippet($userId: Int!, $title:String!, $code:String!) {
+        //     createSnippet(userId: $userId, title: $title, code: $code) {     
+        //        title
+        //        code
+        //        userId
+        //       key
+        //     }
+        //   }`,
+        //   {key: this.props.id
+        //       ,"userId": 3}).then(data => store.dispatch({type: "ADD_SNIPPET", data}))
+          
+
+
+ // else if (action.type === 'ADD_SNIPPET'){
+  //   console.log(action.data)
+  //   return {data: action.data.snippet, status: 'DATA'};
+  // }
+
+  // else if (action.type === 'ADD_SNIPPET'){
+  //   console.log('action.payload', action.payload)
+  //   return [
+  //     ...state,
+  //     action.payload
+  //   ];
+  // }
 
 // gql.request(
 //     `query getSnippet ($snippetId: Int!) {

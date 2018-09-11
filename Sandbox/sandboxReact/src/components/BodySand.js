@@ -57,6 +57,7 @@ class EditorSand extends Component {
  
   render(){
     console.log(this.props.code)
+    console.log(this.props.title)
       return (
         <div className="EditorApp AppLine">
           <p className="App">Editor</p>
@@ -110,11 +111,12 @@ class BodySand extends Component {
 }
     render(){
       console.log(this.props.page.code)
+      console.log(this.props.page.key)
         return (   
           <div>
             <section className="SectionApp ClearfixApp">
               <FilesSand ref={(input) => { this.fileInput = input }} />
-              <EditorSand  code={this.props.page.code}/>
+              <EditorSand  code={this.props.page.code} />
               <ConsoleSand />
             </section>
           </div>   
