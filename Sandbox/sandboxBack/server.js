@@ -113,6 +113,7 @@ var schema = buildSchema(`
     type Mutation {
         createUser(login: String!, mail: String!, password: String!): User
         createSnippet(userId: Int!, title: String!, code: String!): Snippet
+        updateSnippet(snippetId: String!, userId: Int!, code: String!): Snippet
     }
     
     
@@ -132,6 +133,41 @@ async function getSnippet({id}){
    
     return snippet;
 }
+
+async function updateSnippet(args){
+    let id = args.snippetId
+    let code = args.code
+    var snippet = await Snippet.findOne({
+        where: {
+            key: id
+        }
+    })
+    // .then(snippet => snippet.update({code}));
+    console.log(snippet);
+    if (snippet){
+        snippet.update({code})
+    //    snippet => snippet.update({code})
+console.log("success");
+    }
+    else{
+       console.log("error");
+    }
+    
+   
+    return snippet;
+}
+
+// async function updateSnippet(args){
+//     let id = args.snippetId
+//     let code = args.code
+//     console.log(args)
+//     return await Snippet.findOne({
+//         where: {
+//             key: id
+//         }
+//     })
+//     .then(snippet => snippet.update({code}));
+// }
 
 function getUser(args){
     let id = args.id
@@ -155,6 +191,13 @@ function getUserSnippets(args){
 async function createUser({login, mail, password}){
     return User.create({login, mail, password})
 }
+
+// async function updateSnippet({code}){
+//     let snippet = await getSnippet({id})
+
+//     return snippet
+// }
+
 async function createSnippet({userId, title, code}){
     let user    = await User.findById(userId)
     let snippet = await Snippet.create({title,code})
@@ -180,7 +223,8 @@ var root = {
     users: getUsers,
     snippets: getUserSnippets,
     createUser,
-    createSnippet
+    createSnippet,
+    updateSnippet
 };
 // Create an express server and a GraphQL endpoint
 var app = express();
